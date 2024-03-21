@@ -1,163 +1,128 @@
-package dk.vv.emission.pojos;
-
-import jakarta.persistence.*;
-
-import java.util.HashSet;
-import java.util.Set;
-
-@Entity
-@Table(name = "city", schema = "emission")
-public class City {
-    @Id
-    private Long id;
-
-    @Column(name = "city_name")
-    private String cityName;
-
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private Country country;
-
-    @Column(name = "city_location")
-    private String cityLocation;
-
-    @Column(name = "average_annual_temperature")
-    private Float averageAnnualTemperature;
-
-    @Column(name = "c40")
-    private Boolean c40;
-
-    @Column(name = "gcom")
-    private Boolean gcom;
-
-    @Column(name = "land_area")
-    private Float landArea;
-
-    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
-    private Set<CityGDP> cityGDPS = new HashSet<>();
-
-    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
-    private Set<CityPopulation> cityPopulations = new HashSet<>();
-
-    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
-    private Set<Emission> emissions = new HashSet<>();
-
-    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
-    private Set<EmissionTarget> emissionTargets = new HashSet<>();
-
-    // Getters and setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
-
-    public String getCityLocation() {
-        return cityLocation;
-    }
-
-    public void setCityLocation(String cityLocation) {
-        this.cityLocation = cityLocation;
-    }
-
-    public Float getAverageAnnualTemperature() {
-        return averageAnnualTemperature;
-    }
-
-    public void setAverageAnnualTemperature(Float averageAnnualTemperature) {
-        this.averageAnnualTemperature = averageAnnualTemperature;
-    }
-
-    public Boolean getC40() {
-        return c40;
-    }
-
-    public void setC40(Boolean c40) {
-        this.c40 = c40;
-    }
-
-    public Boolean getGcom() {
-        return gcom;
-    }
-
-    public void setGcom(Boolean gcom) {
-        this.gcom = gcom;
-    }
-
-    public Float getLandArea() {
-        return landArea;
-    }
-
-    public void setLandArea(Float landArea) {
-        this.landArea = landArea;
-    }
-
-    public Set<CityGDP> getCityGDPS() {
-        return cityGDPS;
-    }
-
-    public void setCityGDPS(Set<CityGDP> cityGDPS) {
-        this.cityGDPS = cityGDPS;
-    }
-
-    public Set<CityPopulation> getCityPopulations() {
-        return cityPopulations;
-    }
-
-    public void setCityPopulations(Set<CityPopulation> cityPopulations) {
-        this.cityPopulations = cityPopulations;
-    }
-
-    public Set<Emission> getEmissions() {
-        return emissions;
-    }
-
-    public void setEmissions(Set<Emission> emissions) {
-        this.emissions = emissions;
-    }
-
-    public Set<EmissionTarget> getEmissionTargets() {
-        return emissionTargets;
-    }
-
-    public void setEmissionTargets(Set<EmissionTarget> emissionTargets) {
-        this.emissionTargets = emissionTargets;
-    }
-
-    @Override
-    public String toString() {
-        return "City{" +
-                "id=" + id +
-                ", cityName='" + cityName + '\'' +
-                ", country=" + country +
-                ", cityLocation='" + cityLocation + '\'' +
-                ", averageAnnualTemperature=" + averageAnnualTemperature +
-                ", c40=" + c40 +
-                ", gcom=" + gcom +
-                ", landArea=" + landArea +
-                ", cityGDPS=" + cityGDPS +
-                ", cityPopulations=" + cityPopulations +
-                ", emissions=" + emissions +
-                ", emissionTargets=" + emissionTargets +
-                '}';
-    }
-}
+//package dk.vv.emission.pojos;
+//
+//
+//
+//import io.quarkus.mongodb.panache.PanacheMongoEntity;
+//import io.quarkus.mongodb.panache.common.MongoEntity;
+//import org.bson.types.ObjectId;
+//
+//import java.util.HashSet;
+//import java.util.List;
+//import java.util.Set;
+//
+//@MongoEntity(collection = "cities")
+//public class City extends PanacheMongoEntity {
+//    public ObjectId id;
+//    public String cityName;
+//    public ObjectId countryId;
+//    public String cityLocation;
+//    public Double averageAnnualTemperature;
+//    public Boolean c40;
+//    public Integer landArea;
+//    public Boolean gcom;
+//    public List<EmissionTarget> emissionTargets;
+//    public List<Emission> emissions;
+//    public List<GDP> gdps;
+//    public List<Population> populations;
+//    // You may need to add more fields as per your document structure
+//
+//
+//    public City() {
+//    }
+//
+//    public ObjectId getId() {
+//        return id;
+//    }
+//
+//    public void setId(ObjectId id) {
+//        this.id = id;
+//    }
+//
+//    public String getCityName() {
+//        return cityName;
+//    }
+//
+//    public void setCityName(String cityName) {
+//        this.cityName = cityName;
+//    }
+//
+//    public ObjectId getCountryId() {
+//        return countryId;
+//    }
+//
+//    public void setCountryId(ObjectId countryId) {
+//        this.countryId = countryId;
+//    }
+//
+//    public String getCityLocation() {
+//        return cityLocation;
+//    }
+//
+//    public void setCityLocation(String cityLocation) {
+//        this.cityLocation = cityLocation;
+//    }
+//
+//    public Double getAverageAnnualTemperature() {
+//        return averageAnnualTemperature;
+//    }
+//
+//    public void setAverageAnnualTemperature(Double averageAnnualTemperature) {
+//        this.averageAnnualTemperature = averageAnnualTemperature;
+//    }
+//
+//    public Boolean getC40() {
+//        return c40;
+//    }
+//
+//    public void setC40(Boolean c40) {
+//        this.c40 = c40;
+//    }
+//
+//    public Integer getLandArea() {
+//        return landArea;
+//    }
+//
+//    public void setLandArea(Integer landArea) {
+//        this.landArea = landArea;
+//    }
+//
+//    public Boolean getGcom() {
+//        return gcom;
+//    }
+//
+//    public void setGcom(Boolean gcom) {
+//        this.gcom = gcom;
+//    }
+//
+//    public List<EmissionTarget> getEmissionTargets() {
+//        return emissionTargets;
+//    }
+//
+//    public void setEmissionTargets(List<EmissionTarget> emissionTargets) {
+//        this.emissionTargets = emissionTargets;
+//    }
+//
+//    public List<Emission> getEmissions() {
+//        return emissions;
+//    }
+//
+//    public void setEmissions(List<Emission> emissions) {
+//        this.emissions = emissions;
+//    }
+//
+//    public List<GDP> getGdps() {
+//        return gdps;
+//    }
+//
+//    public void setGdps(List<GDP> gdps) {
+//        this.gdps = gdps;
+//    }
+//
+//    public List<Population> getPopulations() {
+//        return populations;
+//    }
+//
+//    public void setPopulations(List<Population> populations) {
+//        this.populations = populations;
+//    }
+//}

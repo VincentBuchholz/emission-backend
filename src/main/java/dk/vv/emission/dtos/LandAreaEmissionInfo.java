@@ -2,20 +2,20 @@ package dk.vv.emission.dtos;
 
 public class LandAreaEmissionInfo {
 
-    private float landArea;
+    private double landArea;
 
     private double emissions;
 
-    public LandAreaEmissionInfo(float landArea, double emissions) {
+    public LandAreaEmissionInfo(double landArea, double emissions) {
         this.landArea = landArea;
         this.emissions = emissions;
     }
 
-    public float getLandArea() {
+    public double getLandArea() {
         return landArea;
     }
 
-    public void setLandArea(float landArea) {
+    public void setLandArea(double landArea) {
         this.landArea = landArea;
     }
 

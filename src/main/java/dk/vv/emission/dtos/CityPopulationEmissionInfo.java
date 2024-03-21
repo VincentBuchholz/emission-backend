@@ -5,11 +5,11 @@ public class CityPopulationEmissionInfo {
 
     private boolean isC40;
 
-    private float population;
+    private double population;
 
-    private float totalEmissions;
+    private double totalEmissions;
 
-    public CityPopulationEmissionInfo(boolean isC40, float population, float totalEmissions) {
+    public CityPopulationEmissionInfo(boolean isC40, double population, double totalEmissions) {
         this.isC40 = isC40;
         this.population = population;
         this.totalEmissions = totalEmissions;
@@ -23,19 +23,19 @@ public class CityPopulationEmissionInfo {
         isC40 = c40;
     }
 
-    public float getPopulation() {
+    public double getPopulation() {
         return population;
     }
 
-    public void setPopulation(float population) {
+    public void setPopulation(double population) {
         this.population = population;
     }
 
-    public float getTotalEmissions() {
+    public double getTotalEmissions() {
         return totalEmissions;
     }
 
-    public void setTotalEmissions(float totalEmissions) {
+    public void setTotalEmissions(double totalEmissions) {
         this.totalEmissions = totalEmissions;
     }
 }

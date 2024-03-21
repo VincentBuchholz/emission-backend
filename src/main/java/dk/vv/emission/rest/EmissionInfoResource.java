@@ -19,7 +19,7 @@ public class EmissionInfoResource {
 
     @Inject
     EmissionInformationFacade emissionInformationFacade;
-
+//
     @GET
     @Path("/tempEmission")
     public List<TempEmissionInformation> getTemperatureEmissionInfos(){
@@ -36,13 +36,13 @@ public class EmissionInfoResource {
     public List<AvgTargetInformation> getAvgTargetInformation(){
         return emissionInformationFacade.getAvgTargetInformation();
     }
-
+//
     @GET
     @Path("/reductionSector")
     public List<AvgReductionSectorInfo> getReductionSectorInfo(){
         return emissionInformationFacade.getAvgReductionTargetSectorInfo();
     }
-
+//
     @GET
     @Path("/countryAvgEmission")
     public List<CountryAvgEmissionInfo> getAvgCountryEmissionInformation(){

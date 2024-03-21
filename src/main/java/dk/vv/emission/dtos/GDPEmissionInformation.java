@@ -1,6 +1,6 @@
 package dk.vv.emission.dtos;
 
-import jakarta.persistence.Column;
+
 
 public class GDPEmissionInformation {
 

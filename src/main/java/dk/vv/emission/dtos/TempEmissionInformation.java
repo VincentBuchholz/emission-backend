@@ -1,35 +1,37 @@
 package dk.vv.emission.dtos;
 
+import org.bson.types.ObjectId;
+
 public class TempEmissionInformation {
 
-    private long cityId;
+    private ObjectId cityId;
 
-    private float avgAnnualTemp;
+    private double avgAnnualTemp;
 
     private String cityName;
 
-    private Float totalEmissions;
+    private double totalEmissions;
 
-    public TempEmissionInformation(long cityId, float avgAnnualTemp, String cityName, Float totalEmissions) {
+    public TempEmissionInformation(ObjectId cityId, double avgAnnualTemp, String cityName, double totalEmissions) {
         this.cityId = cityId;
         this.avgAnnualTemp = avgAnnualTemp;
         this.cityName = cityName;
         this.totalEmissions = totalEmissions;
     }
 
-    public long getCityId() {
+    public ObjectId getCityId() {
         return cityId;
     }
 
-    public void setCityId(long cityId) {
+    public void setCityId(ObjectId cityId) {
         this.cityId = cityId;
     }
 
-    public float getAvgAnnualTemp() {
+    public double getAvgAnnualTemp() {
         return avgAnnualTemp;
     }
 
-    public void setAvgAnnualTemp(float avgAnnualTemp) {
+    public void setAvgAnnualTemp(double avgAnnualTemp) {
         this.avgAnnualTemp = avgAnnualTemp;
     }
 
@@ -41,21 +43,11 @@ public class TempEmissionInformation {
         this.cityName = cityName;
     }
 
-    public Float getTotalEmissions() {
+    public double getTotalEmissions() {
         return totalEmissions;
     }
 
-    public void setTotalEmissions(Float totalEmissions) {
+    public void setTotalEmissions(double totalEmissions) {
         this.totalEmissions = totalEmissions;
-    }
-
-    @Override
-    public String toString() {
-        return "TempEmissionInformation{" +
-                "cityId=" + cityId +
-                ", avgAnnualTemp=" + avgAnnualTemp +
-                ", cityName='" + cityName + '\'' +
-                ", totalEmissions=" + totalEmissions +
-                '}';
     }
 }

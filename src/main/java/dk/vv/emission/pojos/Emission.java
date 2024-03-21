@@ -1,46 +1,12 @@
 package dk.vv.emission.pojos;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "emission", schema = "emission")
 public class Emission {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "reporting_year")
-    private Integer reportingYear;
-
-    @Column(name = "measurement_year")
-    private Integer measurementYear;
-
-    @Column(name = "total_emissions")
-    private Float totalEmissions;
-
-    @Column(name = "total_scope_1_emissions")
-    private Float totalScope1Emissions;
-
-    @Column(name = "total_scope_2_emissions")
-    private Float totalScope2Emissions;
-
-    @ManyToOne
-    @JoinColumn(name = "emission_status_id")
-    private EmissionStatus emissionStatus;
-
-    @ManyToOne
-    @JoinColumn(name = "city_id")
-    private City city;
-
-    // Getters and setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Integer reportingYear;
+    public Integer measurementYear;
+    public Integer totalEmissions;
+    public Integer totalScope1Emissions;
+    public Integer totalScope2Emissions;
+    public String status;
 
     public Integer getReportingYear() {
         return reportingYear;
@@ -58,43 +24,35 @@ public class Emission {
         this.measurementYear = measurementYear;
     }
 
-    public Float getTotalEmissions() {
+    public Integer getTotalEmissions() {
         return totalEmissions;
     }
 
-    public void setTotalEmissions(Float totalEmissions) {
+    public void setTotalEmissions(Integer totalEmissions) {
         this.totalEmissions = totalEmissions;
     }
 
-    public Float getTotalScope1Emissions() {
+    public Integer getTotalScope1Emissions() {
         return totalScope1Emissions;
     }
 
-    public void setTotalScope1Emissions(Float totalScope1Emissions) {
+    public void setTotalScope1Emissions(Integer totalScope1Emissions) {
         this.totalScope1Emissions = totalScope1Emissions;
     }
 
-    public Float getTotalScope2Emissions() {
+    public Integer getTotalScope2Emissions() {
         return totalScope2Emissions;
     }
 
-    public void setTotalScope2Emissions(Float totalScope2Emissions) {
+    public void setTotalScope2Emissions(Integer totalScope2Emissions) {
         this.totalScope2Emissions = totalScope2Emissions;
     }
 
-    public EmissionStatus getEmissionStatus() {
-        return emissionStatus;
+    public String getStatus() {
+        return status;
     }
 
-    public void setEmissionStatus(EmissionStatus emissionStatus) {
-        this.emissionStatus = emissionStatus;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
